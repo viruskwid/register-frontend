@@ -8,12 +8,6 @@ function Register() {
     firstName:"",lastName:"",address:"",email:"",gender:"",mobile:"",password:"",dateofBirth:"",course:""
 })
 const [selectedOption, setSelectedOption] = useState();
-const handleOptionChange = (e) => {
-setSelectedOption(e.target.value);
-};
-useEffect(()=>{
-SetRegisterData({...registerData,gender:selectedOption})
-},[selectedOption])
 console.log(registerData);
 const handleRegister=async()=>{
     const {firstName,lastName,address,email,gender,mobile,password,dateofBirth,course}=registerData
@@ -52,7 +46,7 @@ const handleRegister=async()=>{
                           </div>
                           <div class="mb-3">
                            <label for="last" class="form-label text-white">Last name</label>
-                            <input type="email" class="form-control"  placeholder="Enter your Email" onChange={e=>SetRegisterData({...registerData,lastName:e.target.value})}/>
+                            <input type="email" class="form-control"  placeholder="Enter your last name" onChange={e=>SetRegisterData({...registerData,lastName:e.target.value})}/>
                           </div>
                           <div class="mb-3">
                           <label for="exampleFormControlTextarea1" class="form-label text-white">Address</label>
@@ -60,15 +54,15 @@ const handleRegister=async()=>{
                           </div>
                           <div class="mb-3">
                            <label for="exampleFormControlInput1" class="form-label text-white">Email address</label>
-                            <input type="email" class="form-control" placeholder="name@example.com" onChange={e=>SetRegisterData({...registerData,email:e.target.value})}/>
+                            <input type="email" class="form-control" placeholder="Enter your email" onChange={e=>SetRegisterData({...registerData,email:e.target.value})}/>
                           </div>
                           <div class="mb-3">
                            <label for="exampleFormControlInput1" class="form-label text-white">Gender</label>
-                           <select class="form-select" aria-label="Default select example" onChange={handleOptionChange}>
+                           <select class="form-select" aria-label="Default select example" onChange={e=>SetRegisterData({...registerData,gender:e.target.value})}>
                            <option selected>Select</option>
-                           <option value="1">Male</option>
-                           <option value="2">Female</option>
-                           <option value="3">Other</option>
+                           <option value="male">Male</option>
+                           <option value="Female">Female</option>
+                           <option value="Other">Other</option>
                             </select>
                           </div>
 
@@ -91,9 +85,9 @@ const handleRegister=async()=>{
                            <label for="exampleFormControlInput1 " class="form-label text-white">Select course</label>
                            <select class="form-select" aria-label="Default select example" onChange={e=>SetRegisterData({...registerData,course:e.target.value})} >
                            <option selected>Select</option>
-                           <option value="1">BCA</option>
-                           <option value="2">BSC</option>
-                           <option value="3">MCA</option>
+                           <option value="BCA">BCA</option>
+                           <option value="BSC">BSC</option>
+                           <option value="MCA">MCA</option>
                             </select>
                           </div>
                           <div className='mt-5 ms-5'><Link onClick={handleRegister} style={{backgroundColor:'#8ecccc'}} className='btn shadow '>Register<i class="fa-solid fa-arrow-right ms-3"></i></Link></div>

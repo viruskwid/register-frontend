@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import { getAllStudentsAPI } from '../Services/AllAPIs';
+import { Link } from 'react-router-dom';
 
 function AllStudents() {
     const [allStudents,setAllStudents]=useState()
@@ -50,6 +51,7 @@ function AllStudents() {
         ))
          }
      </Table>
+     <div className='text-start'> <Link to={'/'} className='btn btn-dark'>Back</Link></div>
     </>
   )
 }
